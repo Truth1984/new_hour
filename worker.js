@@ -1,4 +1,4 @@
-let set = (className, num) => $("." + className).html(`${num < 10 ? "0" : ""}${num.toFixed(0)}`);
+let set = (className, time) => $("." + className).html(`${time}`);
 let getTime = () => {
   let now = new Date();
   let hour = now.getHours();
@@ -13,13 +13,8 @@ let getTime = () => {
   let nminute = (nhourRemain - nminuteRemain) / 100;
   let nsecond = nminuteRemain;
 
-  set("hours", hour);
-  set("min", minute);
-  set("sec", second);
-
-  set("nhours", nhour);
-  set("nmin", nminute);
-  set("nsec", nsecond);
+  set("oclock", hour + " : " + minute + " : " + second.toFixed(0));
+  set("nclock", nhour + " : " + nminute + " : " + nsecond.toFixed(0));
 };
 
 $(document).ready(() => {
